@@ -1,7 +1,7 @@
 import { FilesetResolver, FaceLandmarker } from "@mediapipe/tasks-vision";
 
-// Configuration for the model
-const VISION_BASE_URL = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm";
+// Configuration for the model - Match the version in package.json
+const VISION_BASE_URL = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.17/wasm";
 
 export class FaceService {
   private landmarker: FaceLandmarker | null = null;
