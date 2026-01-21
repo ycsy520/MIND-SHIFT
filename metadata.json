@@ -1,0 +1,7 @@
+{
+  "name": "MIND/SHIFT",
+  "description": "A reflex game using webcam hand gesture recognition. Match the on-screen prompts with your left and right hands simultaneously.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
