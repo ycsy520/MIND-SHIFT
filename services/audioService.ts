@@ -4,7 +4,6 @@ export class AudioService {
   private enabled: boolean = true;
 
   private constructor() {
-    // Initialize lazily to respect browser autoplay policies
   }
 
   public static getInstance(): AudioService {
@@ -113,6 +112,63 @@ export class AudioService {
     gain.connect(this.ctx.destination);
     osc.start(t);
     osc.stop(t + 0.15);
+  }
+
+  /**
+   * 播放碎裂音效
+   */
+  public playShatter() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const t = this.ctx.currentTime;
+    const noise = this.ctx.createBufferSource();
+    const bufferSize = this.ctx.sampleRate * 0.2;
+    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+    }
+    noise.buffer = buffer;
+
+    const bp = this.ctx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.frequency.value = 2000;
+    bp.Q.value = 2;
+
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.25, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
+
+    noise.connect(bp);
+    bp.connect(gain);
+    gain.connect(this.ctx.destination);
+    noise.start(t);
+    noise.stop(t + 0.2);
+  }
+
+  /**
+   * 播放震屏低频脉冲
+   */
+  public playThump() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const t = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(60, t);
+
+    gain.gain.setValueAtTime(0.4, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(t);
+    osc.stop(t + 0.12);
   }
 
   public playStart() {

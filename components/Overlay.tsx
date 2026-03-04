@@ -1,1 +1,0 @@
-// Deleted - Logic moved to App.tsx for performance

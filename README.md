@@ -8,11 +8,12 @@ A browser-based reflex game controlled by head movements, featuring a sci-fi "Co
 
 1.  **Allow Camera Access**: The game requires a webcam to track your head position.
 2.  **Move Head**:
-    *   **Blue Reality (Normal)**: Tilt head **Left** to move Left, **Right** to move Right.
-    *   **Red Reality (Inverted)**: Controls are reversed! Tilt **Left** to move **Right**.
+    *   **MIND REALITY (Blue)**: Tilt head **Left** to move Left, **Right** to move Right.
+    *   **SHIFT REALITY (Red)**: Controls are reversed! Tilt **Left** to move **Right**.
 3.  **Dodge Walls**: Guide your ship through the gaps in the approaching digital walls.
-4.  **Lives**: You have 3 lives. Colliding with a wall depletes a life.
-5.  **Adapt**: As your score increases, the reality mode will switch between Normal and Inverted.
+4.  **Invincibility Shield**: A white shield appears for 3 seconds after each reality shift to protect you during the transition.
+5.  **Lives**: You have 3 lives. Colliding with a wall depletes a life.
+6.  **Adapt**: As your score increases, the reality mode will switch between MIND (Normal) and SHIFT (Inverted).
 
 ## 🛠️ Technology Stack
 
@@ -33,8 +34,8 @@ A browser-based reflex game controlled by head movements, featuring a sci-fi "Co
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/mind-shift.git
-    cd mind-shift
+    git clone https://github.com/ycsy520/MIND-SHIFT.git
+    cd MIND-SHIFT
     ```
 
 2.  Install dependencies:

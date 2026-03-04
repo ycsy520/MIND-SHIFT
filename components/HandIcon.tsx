@@ -1,1 +1,0 @@
-// Deleted - Hand logic removed

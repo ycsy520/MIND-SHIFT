@@ -29,6 +29,13 @@ export interface GameState {
   isGameOver: boolean;
   gameStartTime: number;
   practiceProgress: number; // Total successful dodges in practice
+  invincibleUntil?: number;
+  inversionShieldUntil?: number;
+  // Inversion System
+  inversionState: 'NONE' | 'WARNING' | 'ACTIVE';
+  inversionTimer: number; // MS remaining for current state
+  inversionTotalTime: number; // Total duration for progress bar
+  nextInversionScore: number; // Score threshold to trigger next warning
 }
 
 export interface Wall {
@@ -37,6 +44,8 @@ export interface Wall {
   gapX: number; // 0 to 100 (center of the gap)
   gapWidth: number; // width in percentage
   passed: boolean;
+  hitSide?: 'left' | 'right';
+  hitTime?: number;
 }
 
 export type Language = 'en' | 'zh';
