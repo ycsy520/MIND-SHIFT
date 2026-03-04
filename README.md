@@ -1,5 +1,7 @@
 # MIND/SHIFT - Cognitive Reflex Engine
 
+**English** | [中文](./README_zh-CN.md)
+
 A browser-based reflex game controlled by head movements, featuring a sci-fi "Cognitive Reflex Engine" theme.
 
 ![MIND/SHIFT Banner](https://img.shields.io/badge/Status-Active-cyan)
@@ -48,28 +50,6 @@ A browser-based reflex game controlled by head movements, featuring a sci-fi "Co
     npm run dev
     ```
 
-## ☁️ Deployment
-
-### Vercel (Recommended)
-
-This project is configured for one-click deployment on Vercel.
-
-1.  Push this code to your GitHub repository.
-2.  Log in to [Vercel](https://vercel.com).
-3.  Click "Add New..." -> "Project".
-4.  Import your GitHub repository.
-5.  Framework Preset should automatically detect as **Vite**.
-6.  Click **Deploy**.
-
-The `package.json` includes the necessary `build` script (`tsc && vite build`) which Vercel looks for.
-
-## 📱 Mobile Compatibility
-
-The game is optimized for mobile devices:
-*   Prevents pinch-to-zoom.
-*   Handles safe areas (notch support).
-*   Larger touch targets and player visibility.
-*   Graceful camera error handling.
 
 ## 📄 License
 
